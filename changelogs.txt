@@ -1,0 +1,958 @@
+ChangeLogs from build  to 0
+elfcpp/ChangeLog:
+ChangeLogs from build 0 to 1
+libcpp/po/ChangeLog:
+> 2015-10-08  Joseph Myers  <joseph@codesourcery.com>
+> 
+> 	* zh_TW.po: Update.
+> 
+
+libgcc/ChangeLog:
+> 2015-10-19  Venkataramanan Kumar  <Venkataramanan.kumar@amd.com>
+> 
+> 	Backport from mainline
+> 	2015-10-09  Venkataramanan kumar  <venkataramanan.kumar@amd.com>
+> 
+> 	 * config/i386/cpuinfo.c (get_amd_cpu): Detect bdver4.
+> 	(__cpu_indicator_init): Fix model selection for AMD CPUs.
+> 
+
+gcc/ChangeLog:
+> 2015-10-19  H.J. Lu  <hongjiu.lu@intel.com>
+> 
+> 	Backport from mainline
+> 	2015-07-20  Mikhail Maltsev  <maltsevm@gmail.com>
+> 
+> 	* wide-int.h (struct binary_traits): Fix partial specialization syntax.
+> 	(struct int_traits): Likewise.
+> 
+> 2015-10-16  Richard Sandiford  <richard.sandiford@arm.com>
+> 
+> 	PR middle-end/66311
+> 	* wide-int.cc (wi::from_mpz): Make sure that absolute mpz value
+> 	is zero- rather than sign-extended.
+> 
+> 2015-10-15  Peter Bergner  <bergner@vnet.ibm.com>
+> 
+> 	Backport from mainline
+> 	2015-10-14  Peter Bergner  <bergner@vnet.ibm.com>
+> 		    Torvald Riegel  <triegel@redhat.com>
+> 
+> 	PR target/67281
+> 	* config/rs6000/htm.md (UNSPEC_HTM_FENCE): New.
+> 	(tabort, tabort<wd>c, tabort<wd>ci, tbegin, tcheck, tend,
+> 	trechkpt, treclaim, tsr, ttest): Rename define_insns from this...
+> 	(*tabort, *tabort<wd>c, *tabort<wd>ci, *tbegin, *tcheck, *tend,
+> 	*trechkpt, *treclaim, *tsr, *ttest): ...to this.  Add memory barrier.
+> 	(tabort, tabort<wd>c, tabort<wd>ci, tbegin, tcheck, tend,
+> 	trechkpt, treclaim, tsr, ttest): New define_expands.
+> 	* config/rs6000/rs6000-c.c (rs6000_target_modify_macros): Define
+> 	__TM_FENCE__ for htm.
+> 	* doc/extend.texi: Update documentation for htm builtins.
+> 
+> 2015-10-14  Uros Bizjak  <ubizjak@gmail.com>
+> 
+> 	PR target/67967
+> 	* config/i386/i386.c (ix86_emit_save_reg_using_mov): Do not add
+> 	REG_CFA_EXPRESSION to aligned SSE stores.
+> 
+> 2015-10-12  H.J. Lu  <hongjiu.lu@intel.com>
+> 
+> 	PR target/67940
+> 	* config/i386/i386.c (ix86_compute_frame_layout): Correct
+> 	stack alignment adjustment.
+> 	(ix86_expand_prologue): Likewise.
+> 
+> 2015-10-12  Uros Bizjak  <ubizjak@gmail.com>
+> 
+> 	Backport from mainline
+> 	2015-10-08  H.J. Lu  <hongjiu.lu@intel.com>
+> 
+> 	* config/i386/i386.c (ix86_compute_frame_layout): Round up the
+> 	SSE register save area to 16 bytes only if the incoming stack
+> 	boundary is no less than 16 bytes.
+> 
+> 	Backport from mainline
+> 	2015-10-07  Uros Bizjak  <ubizjak@gmail.com>
+> 
+> 	PR target/66697
+> 	* config/i386/i386.c (ix86_option_override_internal): Always use
+> 	8-byte minimum stack boundary in 64-bit mode.
+> 	(ix86_compute_frame_layout): Remove assert on INCOMING_STACK_BOUNDARY.
+> 	(ix86_emit_save_reg_using_mov): Support unaligned SSE store.
+> 	Add a REG_CFA_EXPRESSION note if needed.
+> 	(ix86_emit_restore_sse_regs_using_mov): Support unaligned SSE load.
+> 	(ix86_handle_force_align_arg_pointer_attribute): New.
+> 	(ix86_minimum_incoming_stack_boundary): Remove TARGET_64BIT check.
+> 	(ix86_attribute_table): Set ix86_force_align_arg_pointer_string
+> 	with ix86_handle_force_align_arg_pointer_attribute.
+> 	* config/i386/i386.h (MIN_STACK_BOUNDARY): Set to BITS_PER_WORD.
+> 
+> 2015-10-12  H.J. Lu  <hongjiu.lu@intel.com>
+> 
+> 	Backport from mainline
+> 	2015-10-07  H.J. Lu  <hongjiu.lu@intel.com>
+> 
+> 	PR target/67850
+> 	* config/i386/i386.c (ix86_maybe_switch_abi): Merged with ...
+> 	(ix86_set_current_function): This.
+> 	(TARGET_EXPAND_TO_RTL_HOOK): Removed.
+> 
+> 2015-10-12  Alexander Fomin  <alexander.fomin@intel.com>
+> 	    Kirill Yukhin  <kirill.yukhin@intel.com>
+> 
+> 	PR target/67849
+> 	* config/i386/sse.md (define_split vec_select/V8FI): Restrict
+> 	split for upper-bank registers when target does not support
+> 	AVX512VL.
+> 	(define_insn "vec_extract_lo_<mode><mask_name>"): Restrict
+> 	split when target does not support AVX512VL.
+> 
+> 2015-10-12  Richard Biener  <rguenther@suse.de>
+> 
+> 	Backport from mainline
+> 	2015-07-21  Mike Frysinger  <vapier@gentoo.org>
+> 		    Bernhard Reutner-Fischer  <aldot@gcc.gnu.org>
+> 
+> 	* configure.ac: Add check for new options in isl-0.15.
+> 	* config.in, configure: Rebuilt.
+> 	* graphite-blocking.c: Include <isl/constraint.h>
+> 	* graphite-interchange.c,  graphite-poly.c: Likewise.
+> 	* graphhite-scop-detection.c, graphite-sese-to-poly.c: Likewise.
+> 	* graphite.c: Likewise.
+> 	* graphite-isl-ast-to-gimple.c: Include <isl/constraint.h> and
+> 	<isl/union_set.h>.
+> 	* graphite-dependences.c: Include <isl/constraint.h>.
+> 	(max_number_of_out_dimensions): Returns isl_stat.
+> 	(extend_schedule_1): Likewise
+> 	(extend_schedule): Corresponding changes.
+> 	* graphite-optimize-isl.c: Include <isl/constraint.h> and
+> 	<isl/union_set.h>.
+> 	(getSingleMap): Change return type of isl_stat.
+> 	(optimize_isl): Conditionally use
+> 	isl_options_set_schedule_serialize_sccs.
+> 	* graphite-poly.h (isl_stat, isl_stat_ok): Define fallbacks
+> 	if not HAVE_ISL_OPTIONS_SET_SCHEDULE_SERIALIZE_SCCS.
+> 
+> 2015-10-10  Alexandre Oliva <aoliva@redhat.com>
+> 
+> 	PR debug/58315
+> 	* tree-inline.c (reset_debug_binding): New.
+> 	(reset_debug_bindings): Likewise.
+> 	(expand_call_inline): Call it.
+> 
+> 2015-10-08  Jonathan Wakely  <jwakely@redhat.com>
+> 
+> 	Backport from mainline
+> 	2015-09-17  Richard Henderson  <rth@redhat.com>
+> 
+> 	PR libstdc++/65913
+> 	* builtins.c (fold_builtin_atomic_always_lock_free): Handle fake
+> 	pointers that encode the alignment of the object.
+> 
+> 2015-10-06  Richard Biener  <rguenther@suse.de>
+> 
+> 	Backport from mainline
+> 	2015-09-15  Richard Biener  <rguenther@suse.de>
+> 
+> 	PR middle-end/67563
+> 	* gimple-fold.c (gimplify_and_update_call_from_tree): Do not
+> 	transfer EH info from old to new stmt.
+> 	(replace_call_with_value): Likewise.
+> 	(replace_call_with_call_and_fold): Likewise.
+> 	(gimple_fold_builtin_memory_op): Likewise.
+> 	(gimple_fold_builtin_memset): Likewise.
+> 	(gimple_fold_builtin_stpcpy): Likewise.
+> 	(gimple_fold_call): Likewise.
+> 
+> 	2015-09-24  Richard Biener  <rguenther@suse.de>
+> 
+> 	PR lto/67699
+> 	* lto-cgraph.c (compute_ltrans_boundary): Do not stream
+> 	abstract origins.
+> 
+> 2015-10-06  Kirill Yukhin  <kirill.yukhin@intel.com>
+> 
+> 	* config/i386/i386.c (expand_vec_perm_even_odd_trunc): New.
+> 	(expand_vec_perm_even_odd_1): Handle V64QImode.
+> 	(ix86_expand_vec_perm_const_1): Try expansion with
+> 	expand_vec_perm_even_odd_trunc as well.
+> 	* config/i386/sse.md (VI124_AVX512F): Rename to ...
+> 	(define_mode_iterator VI124_AVX2_24_AVX512F_1_AVX512BW): This. Extend
+> 	to V54QI.
+> 	(define_mode_iterator VI248_AVX2_8_AVX512F): Rename to ...
+> 	(define_mode_iterator VI248_AVX2_8_AVX512F_24_AVX512BW): This. Extend
+> 	to V32HI and V16SI.
+> 	(define_insn "avx512bw_<code>v32hiv32qi2"): Unhide pattern name.
+> 	(define_expand "vec_pack_trunc_<mode>"): Update iterator name.
+> 	(define_expand "vec_unpacks_lo_<mode>"): Ditto.
+> 	(define_expand "vec_unpacks_hi_<mode>"): Ditto.
+> 	(define_expand "vec_unpacku_lo_<mode>"): Ditto.
+> 	(define_expand "vec_unpacku_hi_<mode>"): Ditto.
+> 
+> 2015-10-05  Marek Polacek  <polacek@redhat.com>
+> 
+> 	Backport from mainline
+> 	2015-10-05  Marek Polacek  <polacek@redhat.com>
+> 
+> 	PR tree-optimization/67821
+> 	* tree-ssanames.c (duplicate_ssa_name_range_info): Remove an assert.
+> 
+
+gcc/ChangeLog.RedHat:
+> 2015-10-12  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* cfgrtl.c (fixup_reorder_chain): Do not change the location of
+> 	the end of a basic block when inserting a NOP.
+> 
+
+gcc/c/ChangeLog:
+> 2015-10-05  Marek Polacek  <polacek@redhat.com>
+> 
+> 	Backport from mainline
+> 	2015-10-02  Marek Polacek  <polacek@redhat.com>
+> 
+> 	PR c/67730
+> 	* c-typeck.c (convert_for_assignment): Use the expansion point
+> 	location throughout.
+> 
+
+gcc/cp/ChangeLog:
+> 2015-09-12  Paolo Carlini  <paolo.carlini@oracle.com>
+> 
+> 	Backport from mainline
+> 	2015-06-15  Paolo Carlini  <paolo.carlini@oracle.com>
+> 
+> 	PR c++/51048
+> 	* decl2.c (no_linkage_error): Do not issue a permerror if the DECL
+> 	using a local type is pure virtual.
+> 
+
+gcc/fortran/ChangeLog:
+> 2015-10-19  Steven G. Kargl  <kargl@gcc.gnu.org>
+> 
+> 	PR fortran/67900
+> 	* resolve.c (gfc_verify_binding_labels): Check for NULL pointer.
+> 
+> 2015-10-19  Steven G. Kargl  <kargl@gcc.gnu.org>
+> 
+> 	PR fortran/68019
+> 	* decl.c (add_init_expr_to_sym): Remove an assert() to allow an error
+> 	message to be issued.
+> 
+> 2015-10-19  Steven G. Kargl  <kargl@gcc.gnu.org>
+> 
+> 	PR fortran/67987
+> 	* decl.c (char_len_param_value): Unwrap unlong line.  If LEN < 0,
+> 	force it to zero per the Fortran 90, 95, 2003, and 2008 Standards. 
+> 	* resolve.c (gfc_resolve_substring_charlen): Unwrap unlong line.
+> 	If 'start' is larger than 'end', length of substring is negative,
+> 	so explicitly set it to zero.
+> 	(resolve_charlen): Remove -Wsurprising warning.  Update comment to
+> 	reflect that the text is from the F2008 standard.
+> 
+> 2015-10-18  Paul Thomas  <pault@gcc.gnu.org>
+> 
+> 	PR fortran/66079
+> 	Backport from mainline r224383:
+> 
+> 	* trans-expr.c (gfc_conv_procedure_call): Allocatable scalar
+> 	function results must be freed and nullified after use. Create
+> 	a temporary to hold the result to prevent duplicate calls.
+> 	* trans-stmt.c (gfc_trans_allocate): Rename temporary variable
+> 	as 'source'. Deallocate allocatable components of non-variable
+> 	'source's.
+> 
+> 2015-10-18  Mikael Morin  <mikael@gcc.gnu.org>
+> 
+> 	PR fortran/67721
+> 	PR fortran/67818
+> 	Backport from mainline r222477:
+> 
+> 	2015-04-27  Andre Vehreschild  <vehre@gmx.de>
+> 
+> 	PR fortran/59678
+> 	PR fortran/65841
+> 	* trans-array.c (duplicate_allocatable): Fixed deep copy of
+> 	allocatable components, which are liable for copy only, when
+> 	they are allocated.
+> 	(gfc_duplicate_allocatable): Add deep-copy code into if
+> 	component allocated block. Needed interface change for that.
+> 	(gfc_copy_allocatable_data): Supplying NULL_TREE for code to
+> 	add into if-block for checking whether a component was
+> 	allocated.
+> 	(gfc_duplicate_allocatable_nocopy): Likewise.
+> 	(structure_alloc_comps): Likewise.
+> 	* trans-array.h: Likewise.
+> 	* trans-expr.c (gfc_trans_alloc_subarray_assign): Likewise.
+> 	* trans-openmp.c (gfc_walk_alloc_comps): Likewise.
+> 
+> 	* resolve.c (gfc_resolve_code): Check for scalar expression in
+
+gcc/testsuite/ChangeLog:
+> 2015-10-19  Steven G. Kargl  <kargl@gcc.gnu.org>
+> 
+> 	PR fortran/67900
+> 	* gfortran.dg/pr67900.f90: New tests.
+> 
+> 2015-10-19  Steven G. Kargl  <kargl@gcc.gnu.org>
+> 
+> 	PR fortran/68019
+> 	* gfortran.dg/pr68019.f90: new test.
+> 
+> 2015-10-19  Steven G. Kargl  <kargl@gcc.gnu.org>
+> 
+> 	PR fortran/67987
+> 	* gfortran.df/pr67987.f90: New test.
+> 	* gfortran.dg/char_length_2.f90: Update testcase.
+> 
+> 2015-10-18  Paul Thomas  <pault@gcc.gnu.org>
+> 
+> 	PR fortran/66079
+> 	Backport from mainline r224383:
+> 
+> 	* gfortran.dg/allocatable_scalar_13.f90: New test
+> 
+> 2015-10-18  Mikael Morin  <mikael@gcc.gnu.org>
+> 
+> 	PR fortran/67721
+> 	PR fortran/67818
+> 	Backport from mainline r222477:
+> 
+> 	2015-04-27  Andre Vehreschild  <vehre@gmx.de>
+> 
+> 	PR fortran/59678
+> 	PR fortran/65841
+> 	* gfortran.dg/alloc_comp_deep_copy_1.f03: New test.
+> 	* gfortran.dg/alloc_comp_deep_copy_2.f03: New test.
+> 
+> 2015-10-16  Francois-Xavier Coudert  <fxcoudert@gcc.gnu.org>
+> 
+> 	PR middle-end/66311
+> 	* gfortran.dg/pr66311.f90: New file.
+> 
+> 2015-10-12  Uros Bizjak  <ubizjak@gmail.com>
+> 
+> 	Backport from mainline
+> 	2015-10-07  Uros Bizjak  <ubizjak@gmail.com>
+> 
+> 	PR target/66697
+> 	* gcc.target/i386/20060512-1.c: Remove ia32 requirement.
+> 	(PUSH, POP): New defines.
+> 	(sse2_test): Use PUSH and POP to misalign runtime stack.
+> 	* gcc.target/i386/20060512-2.c: Remove ia32 requirement.
+> 
+> 2015-10-12  Paolo Carlini  <paolo.carlini@oracle.com>
+> 
+> 	Backport from mainline
+> 	2015-06-15  Paolo Carlini  <paolo.carlini@oracle.com>
+> 
+> 	PR c++/51048
+> 	* g++.dg/cpp0x/local-type1.C: New.
+> 
+> 2015-10-12  Alexander Fomin  <alexander.fomin@intel.com>
+> 	    Kirill Yukhin  <kirill.yukhin@intel.com>
+> 
+> 	PR target/67849
+> 	* gcc.target/i386/pr67480.c: New test.
+> 
+> 2015-10-06  Richard Biener  <rguenther@suse.de>
+> 
+> 	Backport from mainline
+> 	2015-09-15  Richard Biener  <rguenther@suse.de>
+> 
+> 	PR middle-end/67563
+> 	* gcc.dg/pr67563.c: New testcase.
+> 
+> 	2015-09-24  Richard Biener  <rguenther@suse.de>
+> 
+> 	PR lto/67699
+> 	* g++.dg/pr67699.C: New testcase.
+> 
+> 2015-10-06  Kirill Yukhin  <kirill.yukhin@intel.com>
+> 
+> 	* gcc.target/i386/vect-pack-trunc-1.c: New test.
+> 	* gcc.target/i386/vect-pack-trunc-2.c: Ditto.
+> 	* gcc.target/i386/vect-perm-even-1.c: Ditto.
+> 	* gcc.target/i386/vect-perm-odd-1.c: Ditto.
+> 	* gcc.target/i386/vect-unpack-1.c: Ditto.
+> 	* gcc.target/i386/vect-unpack-2.c: Ditto.
+> 
+> 2015-10-05  Marek Polacek  <polacek@redhat.com>
+> 
+> 	Backport from mainline
+> 	2015-10-05  Marek Polacek  <polacek@redhat.com>
+> 
+> 	PR tree-optimization/67821
+> 	* gcc.dg/torture/pr67821-2.c: New test.
+> 	* gcc.dg/torture/pr67821.c: New test.
+> 
+> 2015-10-05  Marek Polacek  <polacek@redhat.com>
+> 
+> 	Backport from mainline
+> 	2015-10-02  Marek Polacek  <polacek@redhat.com>
+> 
+> 	PR c/67730
+> 	* gcc.dg/pr67730-1.c: New test.
+> 	* gcc.dg/pr67730-2.c: New test.
+> 	* gcc.dg/pr67730.h: New test.
+> 
+
+gcc/testsuite/ChangeLog.RedHat:
+> 2015-10-20  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* lib/target-supports.exp (add_options_for_put_dg_options_last):
+> 	New proc.  Duplicates dg-options at end of command line.
+> 	* gcc.target/msp430/devices.cc430f5123.c: New test.
+> 	* gcc.target/msp430/devices.msp430p337.c: New test.
+> 	* gcc.target/msp430/devices.rf430frl154_rom.c: New test.
+> 	* gcc.target/msp430/devices.msp430g2544.c: New test.
+> 	* gcc.target/msp430/devices.msp430xgeneric.c: New test.
+> 
+> 2015-10-20  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* gcc.target/msp430/script-flash.c: New test.
+> 	* gcc.target/msp430/script-fram.c: New test.
+> 	* gcc.target/msp430/script-flash-flash2.c: New test.
+> 	* gcc.target/msp430/script-fram-fram2.c: New test.
+> 
+
+gdb/testsuite/ChangeLog.RedHat:
+> 2015-10-11  Kevin Buettner  <kevinb@redhat.com>
+> 
+> 	* gdb.dwarf2/data-loc.exp (Dwarf::assemble): Don't hardcode
+> 	DW_AT_byte_size.
+> 	* gdb.dwarf2/dynarr-ptr.exp (Dwarf::assemble): Don't hardcode
+> 	constants for DW_AT_byte_size, DW_AT_lower_bound, and
+> 	DW_AT_upper_bound.
+> 
+> 	* gdb.dwarf2/dw2-noloc.exp, gdb.dwarf2/dw2-op-call.exp,
+> 	gdb.dwarf2/dw2-linkage-name-trust.exp: Use --no-gc-sections
+> 	for msp430-* too.
+> 
+
+libstdc++-v3/ChangeLog:
+> 2015-10-08  Jonathan Wakely  <jwakely@redhat.com>
+> 
+> 	Backport from mainline
+> 	2015-09-17  Jonathan Wakely  <jwakely@redhat.com>
+> 
+> 	PR libstdc++/65913
+> 	* include/bits/atomic_base.h (__atomic_base<_TTp>::is_lock_free(),
+> 	__atomic_base<_PTp*>::is_lock_free()): Call the built-in with the
+> 	immediate pointer value, not a variable.
+> 	* include/std/atomic (atomic<T>::is_lock_free()): Likewise.
+> 	* testsuite/29_atomics/atomic/65913.cc: New.
+> 
+> 2015-10-07  Jonathan Wakely  <jwakely@redhat.com>
+> 
+> 	Backport Filesystem TS fixes from mainline.
+> 
+> 	PR libstdc++/67173
+> 	PR libstdc++/67747
+> 	* acinclude.m4 (GLIBCXX_CHECK_FILESYSTEM_DEPS): Check _XOPEN_VERSION
+> 	and PATH_MAX for _GLIBCXX_USE_REALPATH.  Remove _GLIBCXX_ prefix
+> 	from HAVE_STRUCT_DIRENT_D_TYPE.
+> 	* config.h.in: Regenerate.
+> 	* configure: Regenerate.
+> 	* include/bits/locale_conv.h [!_GLIBCXX_USE_WCHAR_T]
+> 	(__do_str_codecvt, __str_codecvt_in, __str_codecvt_out): Enable.
+> 	* include/experimental/fs_dir.h (operator==, operator==):
+> 	Use owner_before instead of pointer equality.
+> 	(directory_iterator(std::shared_ptr<_Dir>, error_code*)): Remove.
+> 	* include/experimental/fs_path.h (operator==, operator==):
+> 	* include/experimental/fs_path.h [!_GLIBCXX_USE_WCHAR_T]
+> 	(path::wstring, path::generic_wstring): Disable.
+> 	* src/filesystem/path.cc (path::_S_convert_loc)
+> 	[!_GLIBCXX_USE_WCHAR_T]: Skip conversion.
+> 	* src/filesystem/Makefile.am: Add cxx11_abi_sources.
+> 	* src/filesystem/Makefile.in: Regenerate.
+> 	* src/filesystem/cow-dir.cc: New.
+> 	* src/filesystem/cow-ops.cc: New.
+> 	* src/filesystem/cow-path.cc: New.
+> 	* src/filesystem/dir.cc: Define macro for new ABI.
+> 	(native_readdir): Remove.
+> 	(_Dir::advance): Use readdir instead of native_readdir.
+> 	(recursive_directory_iterator(const path&, directory_options,
+> 	error_code*)): Use swap instead of reset.
+> 	(ErrorCode): Remove.
+> 	(_Dir::advance): Change ErrorCode parameter to error_code*, add
+> 	directory_options parameter and check it on error.
+> 	(opendir): Rename to open_dir to avoid clashing with macro. Change
+> 	ErrorCode parameter to error_code*.
+> 	(make_shared_dir): Remove.
+> 	(native_readdir) [_GLIBCXX_FILESYSTEM_IS_WINDOWS]: Don't set errno.
+> 	(directory_iterator(std::shared_ptr<_Dir>, error_code*)): Remove.
+> 	(directory_iterator(const path&, directory_options, error_code*)):
+> 	Pass options to _Dir::advance and create non-end iterator on error.
+> 	(recursive_directory_iterator(const path&, directory_options,
+> 	error_code*)): Clear error_code on ignored error, create non-end
+> 	iterator otherwise.
+> 	(recursive_directory_iterator::increment): Pass _M_options to
+> 	_Dir::advance.
+> 	(recursive_directory_iterator::pop): Likewise.
+> 	* src/filesystem/ops.cc: Define macro for new ABI.
+> 	(canonical) [!_GLIBCXX_USE_REALPATH]: Add alternative implementation.
+> 	(is_dot, is_dotdot): Define new helpers.
+> 	(create_directories): Fix error handling.
+> 	* src/filesystem/path.cc: Define macro for new ABI.
+> 	(path::_S_convert_loc) [!_GLIBCXX_USE_WCHAR_T]: Skip conversion.
+> 	* testsuite/experimental/filesystem/iterators/directory_iterator.cc:
+> 	New.
+> 	* testsuite/experimental/filesystem/iterators/
+> 	recursive_directory_iterator.cc: New.
+> 	* testsuite/experimental/filesystem/operations/canonical.cc: New.
+> 	* testsuite/experimental/filesystem/operations/create_directories.cc:
+> 	New.
+> 	* testsuite/experimental/filesystem/operations/exists.cc: Add more
+> 	tests.
+> 	* testsuite/experimental/filesystem/operations/absolute.cc: Add test
+> 	variables.
+> 	* testsuite/experimental/filesystem/operations/copy.cc: Likewise.
+> 	* testsuite/experimental/filesystem/operations/current_path.cc:
+> 	Likewise.
+> 	* testsuite/experimental/filesystem/operations/file_size.cc: Likewise.
+> 	* testsuite/experimental/filesystem/operations/status.cc: Likewise.
+> 	* testsuite/experimental/filesystem/operations/temp_directory_path.cc:
+> 	Likewise.
+> 	* testsuite/experimental/filesystem/path/assign/assign.cc: Check for
+> 	wchar_t support.
+> 	* testsuite/experimental/filesystem/path/concat/strings.cc: Likewise.
+> 	* testsuite/experimental/filesystem/path/construct/range.cc: Likewise.
+> 
+
+libgloss/ChangeLog.RedHat:
+> 2015-10-20  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* msp430/debug.ld: New script fragment.
+> 	* msp430/ram+fram.ls: New script.
+> 	* msp430/ram+fram+fram2.ls: New script.
+> 	* msp430/ram+flash.ls: New script.
+> 	* msp430/ram+flash+flash2.ls: New script.
+> 	* msp430/Makefile.in (SCRIPTS): Add new scripts.
+> 
+
+ChangeLogs from build 1 to 3
+gcc/ChangeLog.RedHat:
+> 2015-10-22  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* cfgrtl.c (fixup_reorder_chain): Revert previous delta.
+> 	* final.c (notice_source_line): Do not start a source line on a
+> 	NOP instruction.
+> 
+
+ChangeLogs from build 3 to 6
+libgcc/ChangeLog.RedHat:
+> 2015-10-26  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6094971
+> 	* config/msp430/lib2divSI.c: (__mspabi_divlu): Alias for
+> 	__mspabi_divul function.
+> 	(__mspabi_divllu): New stub function.
+> 
+
+gcc/ChangeLog.RedHat:
+> 2015-10-26  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6094971
+> 	* config/msp430/msp430.c (helper_function_name_mappings): Correct
+> 	spelling of SI and DI mode division helper functions.
+> 
+
+gcc/testsuite/ChangeLog.RedHat:
+> 2015-10-26  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6094971
+> 	* gcc.target/msp430/msp_abi_div_funcs.c: New test.
+> 
+
+ChangeLogs from build 6 to 7
+gcc/ChangeLog.RedHat:
+> 2015-10-27  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* final.c (notice_source_line): Fully revert previous patch.
+> 
+
+ChangeLogs from build 7 to 10
+libgloss/ChangeLog.RedHat:
+> 2015-10-30  DJ Delorie  <dj@redhat.com>
+> 
+> 	* configure.in (msp430): Don't build libnosys.
+> 	* configure: Regenerate.
+> 	* msp430/Makefile.in: Rename cio lib to nosys.
+> 
+
+ChangeLogs from build 10 to 13
+gcc/ChangeLog.RedHat:
+> 2015-11-02  DJ Delorie  <dj@redhat.com>
+> 
+> 	* config/msp430/msp430.h (LIB_SPEC): Link nosys when not -msim.
+> 
+
+ChangeLogs from build 13 to 14
+libgloss/ChangeLog.RedHat:
+> 2015-11-04  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* msp430/ram+fram.ls: Renamed heap section to .heap.
+> 	* msp430/ram+fram+fram2.ls: Likewise.
+> 	* msp430/ram+flash.ls: Likewise.
+> 	* msp430/ram+flash+flash2.ls: Likewise.
+> 
+
+ChangeLogs from build 14 to 25
+gcc/ChangeLog.RedHat:
+> 2015-11-16  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6128661
+> 	* common/config/msp430/msp430-common.c (msp430_handle_option): Do
+> 	not strip out -mmcu option when a -mcpu option is detected.
+> 	* config/msp430/msp430.opt (warn-mcu): New option.
+> 	* config/msp430/msp430.c (msp430_option_override): If an
+> 	unrecognised MCU name is detected only warn if the user has not
+> 	provided suitable -mhwmult and -mcpu options.  Use msp430_warn_mcu
+> 	to control warning messages.  Generate warnings about conflicts
+> 	between -mmcu and -mcpu and -mhwmult options.
+> 	* doc/invoke.texi: Document -mwarn-mcu option.
+> 
+
+gcc/testsuite/ChangeLog.RedHat:
+> 2015-11-16  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6128661
+> 	* gcc.target/msp430/devices.unknown.c: New test.
+> 	* gcc.target/msp430/devices.cc430f5123.c: Update.
+> 	* gcc.target/msp430/devices.msp430p337.c: Update.
+> 	* gcc.target/msp430/devices.rf430frl154_rom.c: Update.
+> 	* gcc.target/msp430/devices.msp430g2544.c: Update.
+> 	* gcc.target/msp430/devices.msp430xgeneric.c: Update.
+> 
+
+ChangeLogs from build 25 to 28
+libgcc/ChangeLog.RedHat:
+> 2015-11-19  DJ Delorie  <dj@redhat.com>
+> 
+> 	* config/msp430/lib2hw_mul.S: Fix alignment.
+> 
+
+ChangeLogs from build 28 to 31
+libgloss/ChangeLog.RedHat:
+> 2015-11-23  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* msp430/ram+fram+fram2.ld (__high_bsssize): Define.
+> 	* msp430/msp430xl-sim.ld: Likewise.
+> 
+
+ChangeLogs from build 31 to 32
+libgcc/ChangeLog.RedHat:
+> 2015-11-25  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6128721
+> 	* config.host (extra_parts): Define for MSP430.
+> 	* config/msp430/lib2hw_mul.S: Build only the multiply routines
+> 	that are needed.
+> 	* config/msp430/lib2mul.c: Likewise.
+> 	* config/msp430/t-msp430 (LIB2ADD): Remove lib2hw_mul.S.
+> 	Add rules to build hardware multiply libraries.
+> 
+
+gcc/ChangeLog.RedHat:
+> 2015-11-25  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6128721
+> 	* config.gcc (extra_gcc_objs): Define for MSP430.
+> 	* config/msp430/msp430.c (msp430_option_override): If neither
+> 	-mcpu nor -mmcu have been specified by -mhwmult=f5series has the
+> 	select the 430X isa.
+> 	(msp430_no_hwmult): If -mmcu has not been specified and
+> 	msp430_hwmult_type is AUTO then return true.
+> 	* config/msp430/msp430.h (EXTRA_SPEC_FUNCTIONS): Define.
+> 	(LIB_SPEC): Add hardware multiply library selection.
+> 	* config/msp430/t-msp430: Delete hardware multiply multilibs.
+> 	Add rule to build driver-msp430.o
+> 	* config/msp430/driver-msp430.c: New file.
+> 	* doc/invoke.texi: Update description of -mhwmult=auto.
+> 
+
+gcc/testsuite/ChangeLog.RedHat:
+> 2015-11-25  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6128721
+> 	* gcc.target/msp430/mul_16bit.c: New test.
+> 	* gcc.target/msp430/mul_32bit.c: New test.
+> 	* gcc.target/msp430/mul_f5.c: New test.
+> 	* gcc.target/msp430/mul_none.c: New test.
+> 	* gcc.target/msp430/mul_main.h: New test support file.
+> 
+
+ChangeLogs from build 32 to 33
+libgcc/ChangeLog.RedHat:
+> 2015-11-26  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* config/msp430/mpy.c (__mulhi3): Allow for the second argument
+> 	being negative.
+> 
+
+gcc/testsuite/ChangeLog.RedHat:
+> 2015-11-26  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* gcc.dg/graphite/scop-0.c: Skip for MSP430.
+> 	* gcc.dg/graphite/scop-3.c: Skip for MSP430.
+> 	* gcc.dg/graphite/pr46185.c: Skip for MSP430.
+> 	* gcc.target/msp430/msp_abi_div_funcs.c: Fix compilation
+> 	problems.
+> 	* g++.dg/graphite/pr42130.C: Skip for MSP430.
+> 
+
+ChangeLogs from build 33 to 36
+libgloss/ChangeLog.RedHat:
+> 2015-11-30  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* msp430/ram+fram+fram2.ld (__high_bsssize): Strip the PROVIDE.
+> 	* msp430/msp430xl-sim.ld: Likewise.
+> 
+
+ChangeLogs from build 36 to 37
+libgcc/ChangeLog.RedHat:
+> 2015-12-01  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* config/msp430/mpy.c (__mulhi3): Use a faster algorithm.
+> 
+
+ChangeLogs from build 37 to 38
+gcc/testsuite/ChangeLog.RedHat:
+> 2015-12-02  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* gcc.c-torture/execute/arith-rand.c: Tidy up formatting.
+> 
+
+gdb/testsuite/ChangeLog.RedHat:
+> 2015-12-03  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* gdb.python/py-symtab.exp (sal.last): Expect "False" result.
+> 
+> 
+
+ChangeLogs from build 38 to 42
+ChangeLog.RedHat:
+ChangeLogs from build 42 to 43
+ChangeLog.RedHat:
+ChangeLogs from build 43 to 50
+gas/ChangeLog.RedHat:
+> 2015-12-15  Nick Clifton  <nickc@redhat.com>
+> 
+> 	Issue 6192101
+> 	* doc/c-msp430.texi (MSP430 Options): Remove references to a
+> 	non-existant silicon errata.
+> 	* config/tc-msp430.c: Likewise.
+> 
+
+ChangeLogs from build 50 to 98
+gcc/ChangeLog.RedHat:
+> 2016-02-02  DJ Delorie  <dj@redhat.com>
+> 
+> 	* config/msp430/msp430.md (ashlhi3): Optimize single-bit shifts.
+> 	(ashrhi3): Likewise.
+> 	(lshrhi3): Likewise.
+> 
+
+ChangeLogs from build 98 to 99
+gcc/ChangeLog.RedHat:
+> 2016-02-04  DJ Delorie  <dj@redhat.com>
+> 
+> 	* config/msp430/msp430.c (msp430_start_function): Add function type.
+> 
+
+gas/ChangeLog.RedHat:
+> 2016-02-04  Nick Clifton  <nickc@redhat.com>
+> 
+> 	PR target/19561
+> 	* config/tc-msp430.c (msp430_operands): Remove case 7.  Use case 2
+> 	to handle encoding of RRUX instruction.
+> 	* testsuite/gas/msp430/msp430x.s: Add more tests of the extended
+> 	shift instructions.
+> 	* testsuite/gas/msp430/msp430x.d: Update expected disassembly.
+> 
+
+opcodes/ChangeLog.RedHat:
+> 2016-02-04  Nick Clifton  <nickc@redhat.com>
+> 
+> 	PR target/19561
+> 	* msp430-dis.c (print_insn_msp430): Add a special case for
+> 	decoding an RRC instruction with the ZC bit set in the extension
+> 	word.
+> 
+
+include/ChangeLog.RedHat:
+> 2016-02-04  Nick Clifton  <nickc@redhat.com>
+> 
+> 	PR target/19561
+> 	* opcode/msp430.h (IGNORE_CARRY_BIT): New define.
+> 	(RRUX): Synthesise using case 2 rather than 7.
+> 
+> 
+
+ChangeLogs from build 99 to 101
+libatomic/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libbacktrace/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libcilkrts/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libcpp/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+> 2015-11-19  Jakub Jelinek  <jakub@redhat.com>
+> 
+> 	PR preprocessor/60736
+> 	* include/cpplib.h (cpp_errno_filename): New prototype.
+> 	* errors.c (cpp_errno): Don't handle msgid "" specially, use
+> 	_(msgid) instead of msgid as argument to cpp_error.
+> 	(cpp_errno_filename): New function.
+> 	* files.c (read_file_guts): Use cpp_errno_filename instead of
+> 	cpp_errno.
+> 	(open_file_failed): Likewise.  Use file->name if file->path is NULL
+> 	in diagnostics.
+> 
+
+libdecnumber/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libgcc/config/libbid/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libitm/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libmpx/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+liboffloadmic/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libquadmath/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libssp/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libvtv/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+lto-plugin/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+zlib/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+> - Avoid expanded $Id: ChangeLog,v 1.42.2.1 2016/02/12 15:57:41 nickc Exp $. Use "rcs -kb" or "cvs admin -kb" to avoid Id expansion.
+
+gcc/go/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+gcc/lto/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+gcc/objcp/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+intl/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+libiberty/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+config/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+contrib/reghunt/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+contrib/regression/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+include/ChangeLog:
+> 2015-12-04  Release Manager
+> 
+> 	* GCC 5.3.0 released.
+> 
+
+ChangeLogs from build 101 to 105
+gcc/ChangeLog.RedHat:
+> 2016-02-17  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* config/msp430/msp430.c (msp430_mcu_data): Update to March 2016.
+> 
+
+gas/ChangeLog.RedHat:
+> 2016-02-17  Nick Clifton  <nickc@redhat.com>
+> 
+> 	* config/msp430/msp430.c (msp430_mcu_data): Update to March 2016.
+> 
+
